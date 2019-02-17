@@ -1,14 +1,15 @@
 # Maintainer: Stefano Capitani <stefano_at_manjaro_dot_org>
 # Maintainer: Bernhard Landauer <oberon@manjaro.org>
 # Contributor: ceyhunnabiyev for Breath color and Adapta Black variation <https://github.com/ceyhunnabiyev>
+# Contributor: bdudelsack for PROGEEK brand color <https://github.com/bdudelsack>
 
-pkgname=adapta-maia-theme
+pkgname=adapta-progeek-theme
 _pkgname=adapta-gtk-theme
 pkgver=3.93.1.16
 pkgrel=1
-pkgdesc="An adaptive Gtk+ theme based on Material Design Guidelines.Build with Manjaro Maia color"
+pkgdesc="An adaptive Gtk+ theme based on Material Design Guidelines.Build with Manjaro Progeek color"
 arch=(any)
-url="https://github.com/adapta-project/${_pkgname}"
+url="https://github.com/bdudelsack/${_pkgname}"
 license=('GPL2' 'CCPL')
 optdepends=('ttf-roboto: The recommended font'
             'noto-fonts: The recommended font for improved language support'
@@ -21,7 +22,7 @@ makedepends=('libxml2'
              'inkscape'
              'libcanberra'
              'parallel')
-validpgpkeys=('2C675EC71CF31D4652AB608616A443152D7A865E')	     
+validpgpkeys=('2C675EC71CF31D4652AB608616A443152D7A865E')
 source=("${_pkgname}-${pkgver}.tar.gz::${url}/archive/${pkgver}.tar.gz"
         "${url}/releases/download/${pkgver}/${_pkgname}-${pkgver}.tar.gz.asc"
         'XfdesktopIconView.patch')
@@ -38,7 +39,7 @@ build() {
     cd $_pkgname-$pkgver
 
     find . -type f -name '*.*' -exec sed -i \
-      "s/#00BCD4/#16a085/Ig" {} \;
+      "s/#00BCD4/#FF9600/Ig" {} \;
 
     find ./extra/gedit/adapta.xml \
       ./extra/plank/dock.theme \
@@ -82,43 +83,43 @@ package() {
     cd $_pkgname-$pkgver
     make install
     install -dm 755 $pkgdir/usr/share/plank/themes
-    ln -s /usr/share/themes/Adapta-Maia/plank $pkgdir/usr/share/plank/themes/Adapta-Maia
+    ln -s /usr/share/themes/Adapta-Progeek/plank $pkgdir/usr/share/plank/themes/Adapta-Progeek
 
-    install -Dm 644 LICENSE_CC_BY_SA4 -t $pkgdir/usr/share/licenses/adapta-maia-theme/
+    install -Dm 644 LICENSE_CC_BY_SA4 -t $pkgdir/usr/share/licenses/adapta-progeek-theme/
 
     # rename folders
     cd "$pkgdir/usr/share/themes"
-    mv Adapta Adapta-Maia
-    mv Adapta-Nokto Adapta-Nokto-Maia
-    mv Adapta-Eta Adapta-Eta-Maia
-    mv Adapta-Nokto-Eta Adapta-Nokto-Eta-Maia
+    mv Adapta Adapta-Progeek
+    mv Adapta-Nokto Adapta-Nokto-Progeek
+    mv Adapta-Eta Adapta-Eta-Progeek
+    mv Adapta-Nokto-Eta Adapta-Nokto-Eta-Progeek
 
     # Modify index.theme
-    sed -i -e 's,.*Adapta.*,Adapta-Maia,' $pkgdir/usr/share/themes/Adapta-Maia/index.theme
-    sed -i -e 's,.*Adapta-Nokto.*,Adapta-Nokto-Maia,' $pkgdir/usr/share/themes/Adapta-Nokto-Maia/index.theme
-    sed -i -e 's,.*Adapta-Eta.*,Adapta-Eta-Maia,' $pkgdir/usr/share/themes/Adapta-Eta-Maia/index.theme
-    sed -i -e 's,.*Adapta-Nokto-Eta.*,Adapta-Nokto-Eta-Maia,' $pkgdir/usr/share/themes/Adapta-Nokto-Eta-Maia/index.theme
+    sed -i -e 's,.*Adapta.*,Adapta-Progeek,' $pkgdir/usr/share/themes/Adapta-Progeek/index.theme
+    sed -i -e 's,.*Adapta-Nokto.*,Adapta-Nokto-Progeek,' $pkgdir/usr/share/themes/Adapta-Nokto-Progeek/index.theme
+    sed -i -e 's,.*Adapta-Eta.*,Adapta-Eta-Progeek,' $pkgdir/usr/share/themes/Adapta-Eta-Progeek/index.theme
+    sed -i -e 's,.*Adapta-Nokto-Eta.*,Adapta-Nokto-Eta-Progeek,' $pkgdir/usr/share/themes/Adapta-Nokto-Eta-Progeek/index.theme
 
     # symlink
-    cd "$pkgdir/usr/share/themes/Adapta-Nokto-Maia"
-    ln -sf /usr/share/themes/Adapta-Maia/xfwm4 xfwm4
-    ln -sf /usr/share/themes/Adapta-Maia/xfce-notify-4.0 xfce-notify-4.0
-    ln -sf /usr/share/themes/Adapta-Maia/plank plank
-    ln -sf /usr/share/themes/Adapta-Maia/gedit gedit
-    ln -sf /usr/share/themes/Adapta-Maia/metacity-1 metacity-1
-    ln -sf /usr/share/themes/Adapta-Maia/gtk-3.22 gtk-3.22
-    ln -sf /usr/share/themes/Adapta-Maia/gtk-3.0 gtk-3.0
+    cd "$pkgdir/usr/share/themes/Adapta-Nokto-Progeek"
+    ln -sf /usr/share/themes/Adapta-Progeek/xfwm4 xfwm4
+    ln -sf /usr/share/themes/Adapta-Progeek/xfce-notify-4.0 xfce-notify-4.0
+    ln -sf /usr/share/themes/Adapta-Progeek/plank plank
+    ln -sf /usr/share/themes/Adapta-Progeek/gedit gedit
+    ln -sf /usr/share/themes/Adapta-Progeek/metacity-1 metacity-1
+    ln -sf /usr/share/themes/Adapta-Progeek/gtk-3.22 gtk-3.22
+    ln -sf /usr/share/themes/Adapta-Progeek/gtk-3.0 gtk-3.0
 
-    cd "$pkgdir/usr/share/themes/Adapta-Eta-Maia"
-    ln -sf /usr/share/themes/Adapta-Maia/xfce-notify-4.0 xfce-notify-4.0
-    ln -sf /usr/share/themes/Adapta-Maia/plank plank
-    ln -sf /usr/share/themes/Adapta-Maia/telegram telegram
-    ln -sf /usr/share/themes/Adapta-Maia/metacity-1 metacity-1
+    cd "$pkgdir/usr/share/themes/Adapta-Eta-Progeek"
+    ln -sf /usr/share/themes/Adapta-Progeek/xfce-notify-4.0 xfce-notify-4.0
+    ln -sf /usr/share/themes/Adapta-Progeek/plank plank
+    ln -sf /usr/share/themes/Adapta-Progeek/telegram telegram
+    ln -sf /usr/share/themes/Adapta-Progeek/metacity-1 metacity-1
 
-    cd "$pkgdir/usr/share/themes/Adapta-Nokto-Eta-Maia"
-    ln -sf /usr/share/themes/Adapta-Eta-Maia/gtk-3.22 gtk-3.22
-    ln -sf /usr/share/themes/Adapta-Maia/metacity-1 metacity-1
-    ln -sf /usr/share/themes/Adapta-Maia/plank plank
-    ln -sf /usr/share/themes/Adapta-Nokto-Maia/telegram telegram
-    ln -sf /usr/share/themes/Adapta-Maia/xfce-notify-4.0 xfce-notify-4.0
+    cd "$pkgdir/usr/share/themes/Adapta-Nokto-Eta-Progeek"
+    ln -sf /usr/share/themes/Adapta-Eta-Progeek/gtk-3.22 gtk-3.22
+    ln -sf /usr/share/themes/Adapta-Progeek/metacity-1 metacity-1
+    ln -sf /usr/share/themes/Adapta-Progeek/plank plank
+    ln -sf /usr/share/themes/Adapta-Nokto-Progeek/telegram telegram
+    ln -sf /usr/share/themes/Adapta-Progeek/xfce-notify-4.0 xfce-notify-4.0
 }
