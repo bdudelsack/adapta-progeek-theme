@@ -9,7 +9,7 @@ pkgver=3.93.1.16
 pkgrel=1
 pkgdesc="An adaptive Gtk+ theme based on Material Design Guidelines.Build with Manjaro Progeek color"
 arch=(any)
-url="https://github.com/bdudelsack/${_pkgname}"
+url="https://github.com/adapta-project/${_pkgname}"
 license=('GPL2' 'CCPL')
 optdepends=('ttf-roboto: The recommended font'
             'noto-fonts: The recommended font for improved language support'
